@@ -1,9 +1,36 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
+describe "Tests para pepita" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  test "Pepita tiene energia inicial (40)" {
+    assert.equals(40, pepita.energia())
+  }
+
+  test "Pepita tiene 25 de energia luego de volar 5km"{
+    pepita.volar(5)
+    assert.equals(25, pepita.energia())
+  }
+
+  test "Pepita tiene 56 de energia luego de comer 4 gramos de comida"{
+    pepita.comer(4)
+    assert.equals(56, pepita.energia())
+  }
+
+  test "Pepita esta inicialmente en Vicente Lopez"{
+    assert.equals(vicenteLopez, pepita.ubicacion())
+  }
+
+  test "Pepita vuela hasta San Isidro"{
+    pepita.irA(sanIsidro)
+    assert.equals(sanIsidro, pepita.ubicacion())
+    assert.equals(25, pepita.energia())
+  }
+
+  test "Pepita puede ir a Tigre"{
+    assert.that(pepita.puedeIrA(tigre))
+  }
+  test "Pepita no puede ir a Campana"{
+    assert.notThat(pepita.puedeIrA(campana))
   }
 
 }
